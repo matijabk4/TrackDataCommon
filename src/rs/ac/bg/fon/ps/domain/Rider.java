@@ -8,6 +8,7 @@ package rs.ac.bg.fon.ps.domain;
 import java.io.Serializable;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -127,7 +128,7 @@ public class Rider implements GenericEntity{
 
     @Override
     public String getColumnNamesForInsert() {
-        return "id,firstname,surname,nationality,motorcyclemake,racingnumber";
+        return "id,firstname,surname,nationality,motorcyclemake,racingnumber,created_on";
     }
 
     @Override
@@ -138,7 +139,7 @@ public class Rider implements GenericEntity{
                 .append("'").append(surname).append("',")
                 .append("'").append(nationality).append("',")
                 .append("'").append(motorcycle).append("',")
-                .append(racingNum);
+                .append(racingNum).append(", '").append(new java.sql.Timestamp(new java.util.Date().getTime())).append("'");
                 
         return sb.toString();
     }

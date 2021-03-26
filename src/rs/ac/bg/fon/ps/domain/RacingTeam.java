@@ -93,7 +93,7 @@ public class RacingTeam implements GenericEntity{
 
     @Override
     public String getColumnNamesForInsert() {
-         return "id,sponsor,budget,name,generalmanager,headquarters";
+         return "id,sponsor,budget,name,generalmanager,headquarters, created_on";
     }
 
     @Override
@@ -104,7 +104,7 @@ public class RacingTeam implements GenericEntity{
                 .append(budget)
                 .append(", '").append(name).append("',")
                 .append("'").append(generalManager).append("',")
-                .append("'").append(headquarters).append("'");
+                .append("'").append(headquarters).append("',").append(" '").append(new java.sql.Timestamp(new java.util.Date().getTime())).append("'");
                 
         return sb.toString();
     }
