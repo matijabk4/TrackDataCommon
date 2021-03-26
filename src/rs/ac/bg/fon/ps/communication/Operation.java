@@ -30,5 +30,6 @@ public enum Operation implements Serializable{
     EDIT_RACE_ITEMS,
     SERVER_SHUTDOWN,
     LOGOUT,
-    LOGOUT_ALL
+    LOGOUT_ALL,
+    DELETE_RACE
 }
