@@ -6,16 +6,20 @@
 package rs.ac.bg.fon.ps.domain;
 
 import java.io.Serializable;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author Matija
  */
-public class Race implements Serializable{
+public class Race implements GenericEntity{
 
     private int id;
     private String track;
@@ -110,6 +114,49 @@ public class Race implements Serializable{
 
     public Timestamp getUpdatedOn() {
         return updatedOn;
+    }
+
+    @Override
+    public String getTableName() {
+        return "RACE";
+    }
+
+    @Override
+    public String getColumnNamesForInsert() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String getInsertValues() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setId(Long id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setValues(ResultSet rs) {
+        try {
+            id=(rs.getInt("id"));
+            track=(rs.getString("track"));
+            date=(rs.getDate("date"));
+            name=(rs.getString("name"));
+            totalLaps=(rs.getInt("totallaps"));
+        } catch (SQLException ex) {
+            Logger.getLogger(Rider.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @Override
+    public String getColumnNameForDelete() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String getIDForDelete() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
    
