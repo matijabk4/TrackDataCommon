@@ -28,5 +28,6 @@ public interface GenericEntity extends Serializable{
 
     String getIDForDelete();
 
-    
+    public int getIDForEdit();
+
 }

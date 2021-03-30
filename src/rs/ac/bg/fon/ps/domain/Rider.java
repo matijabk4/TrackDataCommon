@@ -173,6 +173,11 @@ public class Rider implements GenericEntity{
         return ID.toString();
     }
 
+    @Override
+    public int getIDForEdit() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
    
 
 }
